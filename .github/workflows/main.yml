@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - "master"
-      - "android-34-35-j23"
+      - "android-34-35-j17-23"
 
 jobs:
   build:
@@ -29,4 +29,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/android-34-35-j23:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/android-34-35-j17-23:latest
