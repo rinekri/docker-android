@@ -49,3 +49,8 @@ RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "system-images;and
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "system-images;android-35;google_apis;x86_64"
 
 CMD /opt/tools/entrypoint.sh built-in
+
+COPY tools/git-proxy-entrypoint.sh /usr/local/bin/git-proxy-entrypoint.sh
+RUN chmod +x /usr/local/bin/git-proxy-entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/git-proxy-entrypoint.sh"]

@@ -29,4 +29,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/android-34-35-j17-23:v2
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/android-34-35-j17-23:v3
