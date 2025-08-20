@@ -37,16 +37,14 @@ WORKDIR /opt/android-sdk-linux
 
 RUN /opt/tools/entrypoint.sh built-in
 
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "tools"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "cmdline-tools;latest"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;34.0.0"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;35.0.0"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;35.0.1"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;36.0.0"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platform-tools"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platforms;android-34"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platforms;android-35"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "system-images;android-34;google_apis;x86_64"
+RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platforms;android-36"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "system-images;android-35;google_apis;x86_64"
+RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "system-images;android-36;google_apis;x86_64"
 
 CMD /opt/tools/entrypoint.sh built-in
