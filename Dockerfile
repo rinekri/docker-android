@@ -40,6 +40,7 @@ RUN /opt/tools/entrypoint.sh built-in
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "tools"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "cmdline-tools;latest"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;34.0.0"
+RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;35.0.0"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;35.0.1"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;36.0.0"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platform-tools"
