@@ -14,7 +14,7 @@ ENV ANDROID_NDK_ROOT  ${ANDROID_NDK}
 ENV PATH "${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin"
 ENV PATH "${PATH}:${ANDROID_HOME}/cmdline-tools/tools/bin"
 ENV PATH "${PATH}:${ANDROID_HOME}/tools/bin"
-ENV PATH "${PATH}:${ANDROID_HOME}/build-tools/34.0.0"
+ENV PATH "${PATH}:${ANDROID_HOME}/build-tools/35.0.0"
 ENV PATH "${PATH}:${ANDROID_HOME}/platform-tools"
 ENV PATH "${PATH}:${ANDROID_HOME}/emulator"
 ENV PATH "${PATH}:${ANDROID_HOME}/bin"
@@ -49,7 +49,7 @@ RUN wget https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSIO
   && cd ../ \
   && rm -r ./Python-$PYTHON_VERSION*
 
-RUN python --version
+RUN python --version && g++ -v
 
 WORKDIR /opt/android-sdk-linux
 
@@ -57,16 +57,14 @@ RUN /opt/tools/entrypoint.sh built-in
 
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "tools"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "cmdline-tools;latest"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;34.0.0"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;35.0.1"
+RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;35.0.0"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;36.0.0"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platform-tools"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platforms;android-34"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platforms;android-35"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "system-images;android-34;google_apis;x86_64"
+RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platforms;android-36"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "system-images;android-35;google_apis;x86_64"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "cmake;3.22.1"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "cmake;3.18.1"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "ndk;26.2.11394342"
+RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "system-images;android-36;google_apis;x86_64"
+RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "cmake;4.1.1"
+RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "ndk;29.0.14033849"
 
 CMD /opt/tools/entrypoint.sh built-in
