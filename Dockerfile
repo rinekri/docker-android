@@ -1,4 +1,4 @@
-FROM ubuntu:23.04
+FROM ubuntu:24.04
 
 ARG PYTHON_VERSION=2.7.5
 
@@ -20,16 +20,27 @@ ENV PATH "${PATH}:${ANDROID_HOME}/emulator"
 ENV PATH "${PATH}:${ANDROID_HOME}/bin"
 
 RUN dpkg --add-architecture i386
+
 RUN sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list && \
     echo "deb http://security.ubuntu.com/ubuntu focal-security main universe" | tee -a /etc/apt/sources.list
+
 RUN apt-get update -yqq && \
-    apt-get install -y sudo wget gpg && \
-    wget -O - https://apt.corretto.aws/corretto.key | gpg --dearmor -o /usr/share/keyrings/corretto-keyring.gpg && \
-    echo "deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main" | tee /etc/apt/sources.list.d/corretto.list && \
-    apt-get update -yqq && \
-    apt-get install -y sudo openjdk-17-jdk java-23-amazon-corretto-jdk curl expect git git-lfs libc6:i386 libncurses5:i386 libstdc++6:i386 zlib1g:i386 wget unzip vim jq net-tools ccache g++ && \
-    apt-get install -y gcc make openssl && \
+    apt-get install -y sudo wget gpg software-properties-common
+
+RUN wget -O - https://apt.corretto.aws/corretto.key | gpg --dearmor -o /usr/share/keyrings/corretto-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main" | tee /etc/apt/sources.list.d/corretto.list
+
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y
+
+RUN apt-get update -yqq && \
+    apt-get install -y sudo openjdk-17-jdk java-23-amazon-corretto-jdk curl expect git git-lfs \
+        libc6:i386 libncurses5:i386 libstdc++6:i386 zlib1g:i386 wget unzip vim jq net-tools ccache make openssl \
+        gcc-14 g++-14 && \
     apt-get clean
+
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-14 100 \
+                        --slave /usr/bin/g++ g++ /usr/bin/g++-14
+
 
 RUN sudo update-java-alternatives --set java-23-amazon-corretto
 
