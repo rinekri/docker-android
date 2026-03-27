@@ -1,0 +1,615 @@
+{
+  "image_repo": "android-sdk",
+  "variants": {
+    "api33-34-j11-17": {
+      "platforms": [
+        "linux/amd64"
+      ],
+      "docker": {
+        "ubuntu": "23.04",
+        "apt_profile": "ubuntu23_old_releases",
+        "apt_packages": [
+          "sudo",
+          "openjdk-17-jdk",
+          "openjdk-11-jdk",
+          "curl",
+          "expect",
+          "git",
+          "git-lfs",
+          "libc6:i386",
+          "libgcc1:i386",
+          "libncurses5:i386",
+          "libstdc++6:i386",
+          "zlib1g:i386",
+          "wget",
+          "unzip",
+          "vim",
+          "jq"
+        ],
+        "java_default": "java-1.17.0-openjdk-amd64",
+        "sdk_packages": [
+          "tools",
+          "cmdline-tools;latest",
+          "build-tools;30.0.3",
+          "build-tools;33.0.1",
+          "build-tools;34.0.0",
+          "platform-tools",
+          "platforms;android-33",
+          "platforms;android-34",
+          "system-images;android-33;google_apis;x86_64",
+          "system-images;android-34;google_apis;x86_64"
+        ],
+        "features": {
+          "profiler": false,
+          "python2": false,
+          "gcc14": false,
+          "emulator": false,
+          "marathon": false
+        }
+      }
+    },
+    "api33-34-j17-21": {
+      "platforms": [
+        "linux/amd64"
+      ],
+      "docker": {
+        "ubuntu": "23.04",
+        "apt_profile": "ubuntu23_old_releases",
+        "apt_packages": [
+          "sudo",
+          "openjdk-21-jdk",
+          "openjdk-17-jdk",
+          "curl",
+          "expect",
+          "git",
+          "git-lfs",
+          "libc6:i386",
+          "libncurses5:i386",
+          "libstdc++6:i386",
+          "zlib1g:i386",
+          "wget",
+          "unzip",
+          "vim",
+          "jq"
+        ],
+        "java_default": "java-1.21.0-openjdk-amd64",
+        "sdk_packages": [
+          "tools",
+          "cmdline-tools;latest",
+          "build-tools;30.0.3",
+          "build-tools;33.0.1",
+          "build-tools;34.0.0",
+          "platform-tools",
+          "platforms;android-33",
+          "platforms;android-34",
+          "system-images;android-33;google_apis;x86_64",
+          "system-images;android-34;google_apis;x86_64"
+        ],
+        "features": {
+          "profiler": false,
+          "python2": false,
+          "gcc14": false,
+          "emulator": false,
+          "marathon": false
+        }
+      }
+    },
+    "api33-34-j11-17-u25-ma": {
+      "platforms": [
+        "linux/amd64",
+        "linux/arm64"
+      ],
+      "docker": {
+        "ubuntu": "25.04",
+        "apt_profile": "ubuntu25_i386_focal",
+        "apt_packages": [
+          "sudo",
+          "openjdk-17-jdk",
+          "openjdk-11-jdk",
+          "curl",
+          "expect",
+          "git",
+          "git-lfs",
+          "libc6:i386",
+          "libgcc1:i386",
+          "libncurses5:i386",
+          "libstdc++6:i386",
+          "zlib1g:i386",
+          "wget",
+          "unzip",
+          "vim",
+          "jq"
+        ],
+        "java_default": "java-1.17.0-openjdk-amd64",
+        "sdk_packages": [
+          "tools",
+          "cmdline-tools;latest",
+          "build-tools;30.0.3",
+          "build-tools;33.0.1",
+          "build-tools;34.0.0",
+          "platform-tools",
+          "platforms;android-33",
+          "platforms;android-34",
+          "system-images;android-33;google_apis;x86_64",
+          "system-images;android-34;google_apis;x86_64"
+        ],
+        "features": {
+          "profiler": false,
+          "python2": false,
+          "gcc14": false,
+          "emulator": false,
+          "marathon": false
+        }
+      }
+    },
+    "api33-34-j11-17-profiler": {
+      "platforms": [
+        "linux/amd64"
+      ],
+      "docker": {
+        "ubuntu": "23.04",
+        "apt_profile": "ubuntu23_old_releases",
+        "apt_packages": [
+          "sudo",
+          "openjdk-17-jdk",
+          "openjdk-11-jdk",
+          "curl",
+          "expect",
+          "git",
+          "git-lfs",
+          "libc6:i386",
+          "libgcc1:i386",
+          "libncurses5:i386",
+          "libstdc++6:i386",
+          "zlib1g:i386",
+          "wget",
+          "unzip",
+          "zip",
+          "vim",
+          "jq"
+        ],
+        "java_default": "java-1.17.0-openjdk-amd64",
+        "sdk_packages": [
+          "tools",
+          "cmdline-tools;latest",
+          "build-tools;33.0.1",
+          "build-tools;34.0.0",
+          "platform-tools",
+          "platforms;android-33",
+          "platforms;android-34"
+        ],
+        "features": {
+          "profiler": true,
+          "python2": false,
+          "gcc14": false,
+          "emulator": false,
+          "marathon": false
+        }
+      }
+    },
+    "api34-35-j23-openjdk": {
+      "platforms": [
+        "linux/amd64"
+      ],
+      "docker": {
+        "ubuntu": "23.04",
+        "apt_profile": "ubuntu23_old_releases",
+        "apt_packages": [
+          "sudo",
+          "openjdk-23-jdk",
+          "curl",
+          "expect",
+          "git",
+          "git-lfs",
+          "libc6:i386",
+          "libncurses5:i386",
+          "libstdc++6:i386",
+          "zlib1g:i386",
+          "wget",
+          "unzip",
+          "vim",
+          "jq"
+        ],
+        "java_default": "java-1.23.0-openjdk-amd64",
+        "sdk_packages": [
+          "tools",
+          "cmdline-tools;latest",
+          "build-tools;34.0.0",
+          "build-tools;35.0.1",
+          "build-tools;36.0.0",
+          "platform-tools",
+          "platforms;android-34",
+          "platforms;android-35",
+          "system-images;android-34;google_apis;x86_64",
+          "system-images;android-35;google_apis;x86_64"
+        ],
+        "features": {
+          "profiler": false,
+          "python2": false,
+          "gcc14": false,
+          "emulator": false,
+          "marathon": false
+        }
+      }
+    },
+    "api34-35-j17-21-23-ndk26": {
+      "platforms": [
+        "linux/amd64"
+      ],
+      "docker": {
+        "ubuntu": "23.04",
+        "apt_profile": "ubuntu23_old_releases",
+        "apt_packages": [
+          "sudo",
+          "rsync",
+          "openjdk-17-jdk",
+          "java-21-amazon-corretto-jdk",
+          "java-23-amazon-corretto-jdk",
+          "curl",
+          "expect",
+          "git",
+          "git-lfs",
+          "libc6:i386",
+          "libncurses5:i386",
+          "libstdc++6:i386",
+          "zlib1g:i386",
+          "wget",
+          "unzip",
+          "vim",
+          "jq",
+          "net-tools",
+          "ccache",
+          "g++",
+          "gcc",
+          "make",
+          "openssl"
+        ],
+        "java_default": "java-23-amazon-corretto",
+        "sdk_packages": [
+          "tools",
+          "cmdline-tools;latest",
+          "build-tools;34.0.0",
+          "build-tools;35.0.0",
+          "build-tools;35.0.1",
+          "build-tools;36.0.0",
+          "platform-tools",
+          "platforms;android-34",
+          "platforms;android-35",
+          "system-images;android-34;google_apis;x86_64",
+          "system-images;android-35;google_apis;x86_64",
+          "cmake;3.18.1",
+          "cmake;3.22.1",
+          "ndk;26.2.11394342"
+        ],
+        "features": {
+          "profiler": false,
+          "python2": true,
+          "gcc14": false,
+          "emulator": false,
+          "marathon": false
+        }
+      }
+    },
+    "api34-35-j17-23": {
+      "platforms": [
+        "linux/amd64"
+      ],
+      "docker": {
+        "ubuntu": "23.04",
+        "apt_profile": "ubuntu23_old_releases",
+        "apt_packages": [
+          "sudo",
+          "rsync",
+          "openjdk-17-jdk",
+          "java-23-amazon-corretto-jdk",
+          "curl",
+          "expect",
+          "git",
+          "git-lfs",
+          "libc6:i386",
+          "libncurses5:i386",
+          "libstdc++6:i386",
+          "zlib1g:i386",
+          "wget",
+          "unzip",
+          "vim",
+          "jq"
+        ],
+        "java_default": "java-23-amazon-corretto",
+        "sdk_packages": [
+          "tools",
+          "cmdline-tools;latest",
+          "build-tools;34.0.0",
+          "build-tools;35.0.0",
+          "build-tools;35.0.1",
+          "build-tools;36.0.0",
+          "platform-tools",
+          "platforms;android-34",
+          "platforms;android-35",
+          "system-images;android-34;google_apis;x86_64",
+          "system-images;android-35;google_apis;x86_64"
+        ],
+        "features": {
+          "profiler": false,
+          "python2": false,
+          "gcc14": false,
+          "emulator": false,
+          "marathon": false
+        }
+      }
+    },
+    "api34-35-j17-23-ndk26": {
+      "platforms": [
+        "linux/amd64"
+      ],
+      "docker": {
+        "ubuntu": "23.04",
+        "apt_profile": "ubuntu23_old_releases",
+        "apt_packages": [
+          "sudo",
+          "rsync",
+          "openjdk-17-jdk",
+          "java-23-amazon-corretto-jdk",
+          "curl",
+          "expect",
+          "git",
+          "git-lfs",
+          "libc6:i386",
+          "libncurses5:i386",
+          "libstdc++6:i386",
+          "zlib1g:i386",
+          "wget",
+          "unzip",
+          "vim",
+          "jq",
+          "net-tools",
+          "ccache",
+          "g++",
+          "gcc",
+          "make",
+          "openssl"
+        ],
+        "java_default": "java-23-amazon-corretto",
+        "sdk_packages": [
+          "tools",
+          "cmdline-tools;latest",
+          "build-tools;34.0.0",
+          "build-tools;35.0.0",
+          "build-tools;35.0.1",
+          "build-tools;36.0.0",
+          "platform-tools",
+          "platforms;android-34",
+          "platforms;android-35",
+          "system-images;android-34;google_apis;x86_64",
+          "system-images;android-35;google_apis;x86_64",
+          "cmake;3.18.1",
+          "cmake;3.22.1",
+          "ndk;26.2.11394342"
+        ],
+        "features": {
+          "profiler": false,
+          "python2": true,
+          "gcc14": false,
+          "emulator": false,
+          "marathon": false
+        }
+      }
+    },
+    "api34-35-j23-corretto": {
+      "platforms": [
+        "linux/amd64"
+      ],
+      "docker": {
+        "ubuntu": "23.04",
+        "apt_profile": "ubuntu23_old_releases",
+        "apt_packages": [
+          "sudo",
+          "java-23-amazon-corretto-jdk",
+          "curl",
+          "expect",
+          "git",
+          "git-lfs",
+          "libc6:i386",
+          "libncurses5:i386",
+          "libstdc++6:i386",
+          "zlib1g:i386",
+          "wget",
+          "unzip",
+          "vim",
+          "jq"
+        ],
+        "java_default": "java-23-amazon-corretto",
+        "sdk_packages": [
+          "tools",
+          "cmdline-tools;latest",
+          "build-tools;34.0.0",
+          "build-tools;35.0.1",
+          "build-tools;36.0.0",
+          "platform-tools",
+          "platforms;android-34",
+          "platforms;android-35",
+          "system-images;android-34;google_apis;x86_64",
+          "system-images;android-35;google_apis;x86_64"
+        ],
+        "features": {
+          "profiler": false,
+          "python2": false,
+          "gcc14": false,
+          "emulator": false,
+          "marathon": false
+        }
+      }
+    },
+    "api35-36-j17-23": {
+      "platforms": [
+        "linux/amd64"
+      ],
+      "docker": {
+        "ubuntu": "23.04",
+        "apt_profile": "ubuntu23_old_releases",
+        "apt_packages": [
+          "sudo",
+          "rsync",
+          "openjdk-17-jdk",
+          "java-23-amazon-corretto-jdk",
+          "curl",
+          "expect",
+          "git",
+          "git-lfs",
+          "libc6:i386",
+          "libncurses5:i386",
+          "libstdc++6:i386",
+          "zlib1g:i386",
+          "wget",
+          "unzip",
+          "vim",
+          "jq"
+        ],
+        "java_default": "java-23-amazon-corretto",
+        "sdk_packages": [
+          "cmdline-tools;latest",
+          "build-tools;35.0.0",
+          "build-tools;35.0.1",
+          "build-tools;36.0.0",
+          "platform-tools",
+          "platforms;android-35",
+          "platforms;android-36",
+          "system-images;android-35;google_apis;x86_64",
+          "system-images;android-36;google_apis;x86_64"
+        ],
+        "features": {
+          "profiler": false,
+          "python2": false,
+          "gcc14": false,
+          "emulator": false,
+          "marathon": false
+        }
+      }
+    },
+    "api35-36-j17-23-ndk29-u24-gcc14": {
+      "platforms": [
+        "linux/amd64"
+      ],
+      "docker": {
+        "ubuntu": "24.04",
+        "apt_profile": "ubuntu24_toolchain",
+        "apt_packages": [
+          "sudo",
+          "openjdk-17-jdk",
+          "java-23-amazon-corretto-jdk",
+          "curl",
+          "expect",
+          "git",
+          "git-lfs",
+          "libc6:i386",
+          "libncurses5:i386",
+          "libstdc++6:i386",
+          "zlib1g:i386",
+          "wget",
+          "unzip",
+          "vim",
+          "jq",
+          "net-tools",
+          "ccache",
+          "make",
+          "openssl",
+          "gcc-14",
+          "g++-14"
+        ],
+        "java_default": "java-23-amazon-corretto",
+        "sdk_packages": [
+          "tools",
+          "cmdline-tools;latest",
+          "build-tools;35.0.0",
+          "build-tools;36.0.0",
+          "platform-tools",
+          "platforms;android-35",
+          "platforms;android-36",
+          "system-images;android-35;google_apis;x86_64",
+          "system-images;android-36;google_apis;x86_64",
+          "cmake;4.1.1",
+          "ndk;29.0.14033849"
+        ],
+        "features": {
+          "profiler": false,
+          "python2": true,
+          "gcc14": true,
+          "emulator": false,
+          "marathon": false
+        }
+      }
+    },
+    "api34-35-j17-21-23-ndk26-emu-api35": {
+      "platforms": [
+        "linux/amd64"
+      ],
+      "docker": {
+        "ubuntu": "23.04",
+        "apt_profile": "ubuntu23_old_releases",
+        "apt_packages": [
+          "sudo",
+          "rsync",
+          "openjdk-17-jdk",
+          "java-21-amazon-corretto-jdk",
+          "java-23-amazon-corretto-jdk",
+          "curl",
+          "expect",
+          "git",
+          "git-lfs",
+          "libc6:i386",
+          "libncurses5:i386",
+          "libstdc++6:i386",
+          "zlib1g:i386",
+          "wget",
+          "unzip",
+          "vim",
+          "jq",
+          "net-tools",
+          "socat",
+          "libglu1",
+          "libpulse0",
+          "libx11-6",
+          "libxcb1",
+          "libxdamage1",
+          "libnss3",
+          "libxcomposite1",
+          "libxcursor1",
+          "libxi6",
+          "libxext6",
+          "libxfixes3",
+          "lib32stdc++6",
+          "ccache",
+          "g++",
+          "gcc",
+          "make",
+          "openssl"
+        ],
+        "java_default": "java-23-amazon-corretto",
+        "sdk_packages": [
+          "tools",
+          "cmdline-tools;latest",
+          "emulator",
+          "build-tools;34.0.0",
+          "build-tools;35.0.0",
+          "build-tools;35.0.1",
+          "build-tools;36.0.0",
+          "platform-tools",
+          "platforms;android-34",
+          "platforms;android-35",
+          "system-images;android-35;google_apis;x86_64",
+          "cmake;3.18.1",
+          "cmake;3.22.1",
+          "ndk;26.2.11394342"
+        ],
+        "features": {
+          "profiler": false,
+          "python2": true,
+          "gcc14": false,
+          "emulator": true,
+          "marathon": true
+        },
+        "marathon_version": "0.10.1"
+      }
+    }
+  }
+}

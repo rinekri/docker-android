@@ -1,0 +1,63 @@
+name: publish-by-tag
+
+on:
+  push:
+    tags:
+      - "build/*/v*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Parse build tag
+        id: parse
+        run: ./scripts/parse-build-tag.sh "${GITHUB_REF_NAME}" "${GITHUB_OUTPUT}"
+
+      - name: Resolve variant
+        id: resolve
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_HUB_USERNAME }}
+        run: |
+          ./scripts/resolve-variant.sh \
+            --variant-id "${{ steps.parse.outputs.variant_id }}" \
+            --release "${{ steps.parse.outputs.release }}" \
+            --docker-user "${DOCKER_USER}" \
+            --output "${GITHUB_OUTPUT}"
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          platforms: ${{ steps.resolve.outputs.platforms }}
+          tags: ${{ steps.resolve.outputs.tags }}
+          build-args: |
+            UBUNTU_VERSION=${{ steps.resolve.outputs.ubuntu_version }}
+            APT_PROFILE=${{ steps.resolve.outputs.apt_profile }}
+            APT_PACKAGES_CSV=${{ steps.resolve.outputs.apt_packages_csv }}
+            JAVA_DEFAULT=${{ steps.resolve.outputs.java_default }}
+            SDK_PACKAGES_CSV=${{ steps.resolve.outputs.sdk_packages_csv }}
+            ENABLE_PROFILER=${{ steps.resolve.outputs.enable_profiler }}
+            ENABLE_PYTHON2=${{ steps.resolve.outputs.enable_python2 }}
+            ENABLE_GCC14=${{ steps.resolve.outputs.enable_gcc14 }}
+            ENABLE_EMULATOR=${{ steps.resolve.outputs.enable_emulator }}
+            ENABLE_MARATHON=${{ steps.resolve.outputs.enable_marathon }}
+            MARATHON_VERSION=${{ steps.resolve.outputs.marathon_version }}
