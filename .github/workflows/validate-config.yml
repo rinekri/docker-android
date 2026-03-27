@@ -1,0 +1,31 @@
+name: validate-config
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate variants schema and content
+        run: ./scripts/validate-variants.sh
+
+      - name: Validate build tag parser for all variants
+        run: |
+          for variant_id in $(jq -r '.variants | keys[]' variants.json); do
+            ./scripts/parse-build-tag.sh "build/${variant_id}/v9999" >/dev/null
+          done
+
+      - name: Validate variant resolution for all variants
+        run: |
+          for variant_id in $(jq -r '.variants | keys[]' variants.json); do
+            ./scripts/resolve-variant.sh \
+              --variant-id "${variant_id}" \
+              --release "v9999" \
+              --docker-user "example" \
+              >/dev/null
+          done

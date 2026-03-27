@@ -9,28 +9,20 @@ export PATH=${PATH}:${ANDROID_HOME}/cmdline-tools/latest/bin
 export PATH=${PATH}:${ANDROID_HOME}/cmdline-tools/tools/bin
 export PATH=${PATH}:${ANDROID_HOME}/tools/bin
 export PATH=${PATH}:${ANDROID_HOME}/build-tools/30.0.3
+export PATH=${PATH}:${ANDROID_HOME}/build-tools/33.0.1
+export PATH=${PATH}:${ANDROID_HOME}/build-tools/34.0.0
+export PATH=${PATH}:${ANDROID_HOME}/build-tools/35.0.0
+export PATH=${PATH}:${ANDROID_HOME}/build-tools/35.0.1
+export PATH=${PATH}:${ANDROID_HOME}/build-tools/36.0.0
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:${ANDROID_HOME}/emulator
 export PATH=${PATH}:${ANDROID_HOME}/bin
 
-function print_header() {
-    figlet SBB CFF FFS
-    figlet welcome to
-    figlet andep
-    echo ''
-    echo ''
-    echo ''
-}
-
 function help() {
-    figlet "usage:"
-    echo "update_sdk: Updates the SDK"
-    echo "andep: Installs one or more android Packets."
-    echo "   -Example: anddep \"platforms;android-26\""
-    echo "help: Shows this help"
-    echo ''
-    echo ''
-    echo ''
+    echo "usage:"
+    echo "  update_sdk                 Updates installed Android SDK metadata"
+    echo "  andep \"<sdk package>\"      Installs one Android SDK package"
+    echo "  help                       Shows this help"
 }
 
 function update_sdk() {
@@ -38,11 +30,11 @@ function update_sdk() {
 }
 
 function andep() {
-    if [ -z ${1} ]; then
+    if [ -z "${1:-}" ]; then
         help
         return 1
     fi
-    android-accept-licenses.sh  "sdkmanager ${1}"
+    android-accept-licenses.sh "sdkmanager ${1}"
 }
 
 export -f help
