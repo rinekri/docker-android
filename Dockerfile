@@ -47,14 +47,14 @@ RUN set -eux; \
         if [ -f /etc/apt/sources.list ]; then \
           sed -i -re 's/([a-z]{2}\\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list; \
         else \
-          cat <<'SRC' >/etc/apt/sources.list
-deb http://old-releases.ubuntu.com/ubuntu/ lunar main restricted universe multiverse
-deb http://old-releases.ubuntu.com/ubuntu/ lunar-updates main restricted universe multiverse
-deb http://old-releases.ubuntu.com/ubuntu/ lunar-security main restricted universe multiverse
-SRC
+          printf '%s\n' \
+            'deb http://old-releases.ubuntu.com/ubuntu/ lunar main restricted universe multiverse' \
+            'deb http://old-releases.ubuntu.com/ubuntu/ lunar-updates main restricted universe multiverse' \
+            'deb http://old-releases.ubuntu.com/ubuntu/ lunar-security main restricted universe multiverse' \
+            > /etc/apt/sources.list; \
         fi; \
         echo "deb http://security.ubuntu.com/ubuntu focal-security main universe" >> /etc/apt/sources.list; \
-        ;;
+        ;; \
       ubuntu25_i386_focal) \
         touch /etc/apt/sources.list.d/i386.list; \
         if [ -f /etc/apt/sources.list ]; then \
@@ -65,17 +65,17 @@ SRC
         echo "deb [arch=i386] http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse" >> /etc/apt/sources.list.d/i386.list; \
         echo "deb [arch=i386] http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse" >> /etc/apt/sources.list.d/i386.list; \
         echo "deb http://security.ubuntu.com/ubuntu focal-security main universe" >> /etc/apt/sources.list; \
-        ;;
+        ;; \
       ubuntu24_toolchain) \
         if [ -f /etc/apt/sources.list ]; then \
           sed -i -re 's/([a-z]{2}\\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list; \
         fi; \
         echo "deb http://security.ubuntu.com/ubuntu focal-security main universe" >> /etc/apt/sources.list; \
-        ;;
+        ;; \
       *) \
         echo "Unsupported APT_PROFILE: ${APT_PROFILE}"; \
         exit 1; \
-        ;;
+        ;; \
     esac; \
     apt-get update -yqq; \
     if [[ "${APT_PACKAGES_CSV}" == *"amazon-corretto"* ]]; then \
